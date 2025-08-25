@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Felicidades Ángeles Monserrat!</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe6f0, #e0f7fa);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: #333;
+    }
+    h1 {
+      font-size: 3em;
+      color: #d81b60;
+    }
+    p {
+      font-size: 1.5em;
+      margin: 20px 0;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: inline-block;
+      padding: 30px;
+      max-width: 600px;
+    }
+    .heart {
+      font-size: 2em;
+      color: #f06292;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Música de fondo -->
+  <audio id="bgmusic" autoplay loop controls>
+    <source src="Hasta La Raíz - Natalia Lafourcade.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+  <p style="font-size:1em; color:#888;">Si no escuchas la música, haz clic en el botón de play ▶️</p>
+
+  <div class="card">
+    <img id="slideshow" src="FOTOS/1.jpg" alt="Ángeles Monserrat" 
+         style="width:350px; height:350px; object-fit:cover; border-radius:20px; margin:8px;">
+    <div style="margin: 15px;">
+      <button onclick="prevImage()">⏮️ Anterior</button>
+      <button onclick="nextImage()">Siguiente ⏭️</button>
+    </div>
+    <!-- Bloque de felicitación después de las fotos -->
+    <div>
+      <h1>Princesa Ángeles Monserrat,</h1>
+      <p>Hoy cumples 10 años… ¡una década de luz, risas y magia!</p>
+      <p>Has crecido con una chispa única, con ideas que sorprenden, con una imaginación que vuela alto. Cada día contigo es una aventura, una lección, un regalo.</p>
+      <p>Me encanta verte descubrir el mundo con curiosidad, defender tus ideas con fuerza y crear cosas hermosas con tus manos y tu corazón.</p>
+      <p>Que este nuevo año te traiga sueños más grandes, amistades sinceras y momentos que te hagan sentir orgullosa de quién eres.</p>
+      <p>Nunca olvides que eres capaz de todo lo que imagines.</p>
+      <p>Estoy aquí para acompañarte, aplaudirte y abrazarte en cada paso.</p>
+      <p class="heart">❤️ Con todo mi cariño y amor, tu papá ❤️</p>
+    </div>
+  </div>
+  <script>
+    const total = 29;
+    let actual = 1;
+    function showImage() {
+      document.getElementById('slideshow').src = `FOTOS/${actual}.jpg`;
+    }
+    function nextImage() {
+      actual = actual < total ? actual + 1 : 1;
+      showImage();
+    }
+    function prevImage() {
+      actual = actual > 1 ? actual - 1 : total;
+      showImage();
+    }
+    // Cambio automático cada 3 segundos (opcional)
+    setInterval(nextImage, 3000);
+  </script>
+</body>
+</html>
